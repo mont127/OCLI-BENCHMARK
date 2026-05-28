@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Work Productivity Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Remote Work Productivity Platform</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#tasks">Tasks</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#wellness">Wellness</a></li>
+                <li><a href="#login" id="login-link">Login</a></li>
+                <li><a href="#register" id="register-link">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="login" class="auth-section">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div>
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div>
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+
+        <section id="register" class="auth-section">
+            <h2>Register</h2>
+            <form id="register-form">
+                <div>
+                    <label for="register-name">Name:</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div>
+                    <label for="register-email">Email:</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div>
+                    <label for="register-password">Password:</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section id="dashboard" class="content-section">
+            <h2>Dashboard</h2>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>Tasks Completed</h3>
+                    <p id="completed-tasks">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Hours Tracked</h3>
+                    <p id="tracked-hours">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Wellness Score</h3>
+                    <p id="wellness-score">0</p>
+                </div>
+            </div>
+            <div class="dashboard-charts">
+                <div class="chart-container">
+                    <h3>Productivity Over Time</h3>
+                    <canvas id="productivity-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Task Distribution</h3>
+                    <canvas id="task-distribution-chart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="tasks" class="content-section">
+            <h2>Tasks</h2>
+            <button id="add-task-btn">Add New Task</button>
+            <div id="task-form" class="task-form hidden">
+                <h3>Add New Task</h3>
+                <form id="task-form-content">
+                    <div>
+                        <label for="task-title">Title:</label>
+                        <input type="text" id="task-title" required>
+                    </div>
+                    <div>
+                        <label for="task-description">Description:</label>
+                        <textarea id="task-description"></textarea>
+                    </div>
+                    <div>
+                        <label for="task-project">Project:</label>
+                        <select id="task-project"></select>
+                    </div>
+                    <div>
+                        <label for="task-priority">Priority:</label>
+                        <select id="task-priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="task-due-date">Due Date:</label>
+                        <input type="date" id="task-due-date">
+                    </div>
+                    <button type="submit">Save Task</button>
+                    <button type="button" id="cancel-task">Cancel</button>
+                </form>
+            </div>
+            <div id="tasks-list"></div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <h2>Projects</h2>
+            <button id="add-project-btn">Add New Project</button>
+            <div id="project-form" class="project-form hidden">
+                <h3>Add New Project</h3>
+                <form id="project-form-content">
+                    <div>
+                        <label for="project-name">Name:</label>
+                        <input type="text" id="project-name" required>
+                    </div>
+                    <div>
+                        <label for="project-description">Description:</label>
+                        <textarea id="project-description"></textarea>
+                    </div>
+                    <button type="submit">Save Project</button>
+                    <button type="button" id="cancel-project">Cancel</button>
+                </form>
+            </div>
+            <div id="projects-list"></div>
+        </section>
+
+        <section id="wellness" class="content-section">
+            <h2>Wellness Tracking</h2>
+            <button id="add-wellness-btn">Log Wellness</button>
+            <div id="wellness-form" class="wellness-form hidden">
+                <h3>Log Wellness Entry</h3>
+                <form id="wellness-form-content">
+                    <div>
+                        <label for="wellness-mood">Mood:</label>
+                        <select id="wellness-mood">
+                            <option value="happy">Happy</option>
+                            <option value="neutral">Neutral</option>
+                            <option value="sad">Sad</option>
+                            <option value="anxious">Anxious</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="wellness-sleep">Hours of Sleep:</label>
+                        <input type="number" id="wellness-sleep" min="0" max="24" step="0.5">
+                    </div>
+                    <div>
+                        <label for="wellness-stress">Stress Level (1-10):</label>
+                        <input type="number" id="wellness-stress" min="1" max="10">
+                    </div>
+                    <div>
+                        <label for="wellness-note">Note:</label>
+                        <textarea id="wellness-note"></textarea>
+                    </div>
+                    <button type="submit">Save Entry</button>
+                    <button type="button" id="cancel-wellness">Cancel</button>
+                </form>
+            </div>
+            <div id="wellness-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Remote Work Productivity Platform &copy; 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
