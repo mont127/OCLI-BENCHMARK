@@ -32,5 +32,13 @@ A unified platform that combines task management, time tracking, communication t
 3. Run the application: `python main.py`
 4. Access the app at `http://localhost:8000`
 
+## Database Schema
+The application uses SQLite with the following models:
+- Users: Store user information and authentication data
+- Tasks: Track individual tasks with status, priority, and time tracking
+- Projects: Group related tasks together
+- Time Entries: Record time spent on tasks and projects
+- Wellness Entries: Track employee wellness metrics including mood, sleep, and stress levels
+
 ## Development
 This project is under active development for the OCLI-BENCHMARK.
